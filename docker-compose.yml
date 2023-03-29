@@ -1,0 +1,29 @@
+
+version: "3.7"
+services:
+  app_react:
+    build: ./digital-card-front
+    container_name: app_react
+    ports:
+      - 3000:3000
+    env_file:
+      - ./digital-card-front/.env
+    volumes:
+      - build_react:/var/www/html
+    depends_on:
+      - app_node
+    
+  app_node:
+    build: ./digital-card-back
+    container_name: app_node
+    ports:
+      - 4000:4000
+    env_file:
+      - ./digital-card-back/.env
+    volumes:
+      - ./digital-card-back:/usr/src
+      - /usr/src/node_modules
+    command: "npm run start"
+   
+volumes:
+  build_react:

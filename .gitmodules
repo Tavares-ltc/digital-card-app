@@ -1,0 +1,7 @@
+
+[submodule "digital-card-back"]
+	path = digital-card-back
+	url = https://github.com/Tavares-ltc/digital-card-back.git
+[submodule "digital-card-front"]
+	path = digital-card-front
+	url = https://github.com/Tavares-ltc/digital-card-front.git
