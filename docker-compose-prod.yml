@@ -9,7 +9,7 @@ services:
     env_file:
       - ./digital-card-front/.env
     volumes:
-      - build_react:/var/www/html/
+      - build_react:/var/www/html
     depends_on:
       - node
     
@@ -25,5 +25,14 @@ services:
       - /usr/src/node_modules
     command: "npm run start"
    
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    ports:
+      - 5000:80
+    volumes:
+      - build_react:/var/www/html
+    depends_on:
+      - react
 volumes:
   build_react:
